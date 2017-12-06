@@ -14,15 +14,20 @@
  * limitations under the License.
  *@
 
- @main("Module Directory","home") {
+@import play.api.libs.json.JsValue
 
- <div class="container">
-    <div class="login-page clearfix">
-      <div class="login-box auth0-box before">
+@(profile: JsValue)
 
-        <a class="btn btn-primary btn-lg btn-block" href="/login">SignIn</a>
-      </div>
-    </div>
+@main("Module Directory","home") {
+
+<div class="container">
+ <div class="login-page clearfix">
+   <div class="logged-in-box auth0-box logged-in">
+     <h2>Welcome</h2>
+     @profile
+     <p></p>
+     <a href="/logout" class="btn btn-lg">Logout</a>
+   </div>
+ </div>
 </div>
-
 }

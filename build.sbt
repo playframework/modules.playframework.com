@@ -8,9 +8,15 @@ licenses += ("Apache-2.0", new URL(
 version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file("."))
-  .enablePlugins(PlayScala, AutomateHeaderPlugin)
+  .enablePlugins(PlayScala, SbtWeb, AutomateHeaderPlugin)
 
 scalaVersion := "2.12.4"
+
+libraryDependencies ++= Seq(
+  jdbc,
+  cache,
+  ws
+)
 
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
@@ -22,8 +28,4 @@ unmanagedSources.in(Compile, headerCreate) ++= sources
   .in(Compile, TwirlKeys.compileTemplates)
   .value
 
-// Adds additional packages into Twirl
-//TwirlKeys.templateImports += "com.playframework.modules.controllers._"
-
-// Adds additional packages into conf/routes
-// play.sbt.routes.RoutesKeys.routesImport += "com.playframework.modules.binders._"
+resolvers += Resolver.url("Typesafe Ivy releases", url("https://repo.typesafe.com/typesafe/ivy-releases"))(Resolver.ivyStylePatterns)
