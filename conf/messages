@@ -1,0 +1,19 @@
+home.title = Play Framework - Module Directory
+sign.in.title = Sign In - Module Directory
+
+home = Home
+full.name = Name
+email = Email
+password = Password
+github = GitHub
+sign.in = Sign in
+sign.in.credentials = Authenticate via GitHub
+sign.out = Sign out
+sign.in.now = Sign in now
+
+toggle.navigation = Toggle navigation
+error = Error!
+error.required = This field is required
+invalid.credentials = Invalid credentials!
+access.denied = Access denied!
+could.not.authenticate = Could not authenticate with social provider! Please try again!

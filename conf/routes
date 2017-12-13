@@ -3,11 +3,14 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
-GET     /login                      controllers.Application.login
-GET     /logout                     controllers.Application.logout
-GET     /login/callback             controllers.Callback.callback(code: Option[String], state: Option[String])
-GET     /user                       controllers.User.index
+GET         /                                controllers.ApplicationController.index
+GET         /signIn                          controllers.ApplicationController.signIn
+GET         /signOut                         controllers.ApplicationController.signOut
+GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
+
+GET         /modules                         controllers.ApplicationController.modules
+
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET         /assets/*file                    controllers.Assets.at(path="/public", file)
+->          /webjars                         webjars.Routes

@@ -1,4 +1,4 @@
-@*
+/*
  * Copyright 2017 Lightbend
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,22 +12,18 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *@
+ */
 
-@import play.api.libs.json.JsValue
+package utils
 
-@(profile: JsValue)
+import com.mohiva.play.silhouette.api.Env
+import com.mohiva.play.silhouette.impl.authenticators.CookieAuthenticator
+import models.User
 
-@main("Module Directory","home") {
-
-<div class="container">
- <div class="login-page clearfix">
-   <div class="logged-in-box auth0-box logged-in">
-     <h2>Welcome</h2>
-     @profile
-     <p></p>
-     <a href="/logout" class="btn btn-lg">Logout</a>
-   </div>
- </div>
-</div>
+/**
+ * The default env.
+ */
+trait DefaultEnv extends Env {
+  type I = User
+  type A = CookieAuthenticator
 }

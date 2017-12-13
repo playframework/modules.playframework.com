@@ -14,17 +14,12 @@
  * limitations under the License.
  */
 
-package helpers
+package models.daos
 
-import play.api.Play
+import play.api.db.slick.HasDatabaseConfigProvider
+import slick.jdbc.JdbcProfile
 
-case class Auth0Config(secret: String, clientId: String, callbackURL: String, domain: String)
-object Auth0Config {
-  def get() = {
-    Auth0Config(
-      Play.current.configuration.getString("auth0.clientSecret").get,
-      Play.current.configuration.getString("auth0.clientId").get,
-      Play.current.configuration.getString("auth0.callbackURL").get,
-      Play.current.configuration.getString("auth0.domain").get)
-  }
-}
+/**
+ * Trait that contains generic slick db handling code to be mixed in with DAOs
+ */
+trait DAOSlick extends DBTableDefinitions with HasDatabaseConfigProvider[JdbcProfile]

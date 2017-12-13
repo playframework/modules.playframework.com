@@ -14,23 +14,18 @@
  * limitations under the License.
  */
 
-import org.specs2.mutable._
-import org.specs2.runner._
-import org.junit.runner._
+package utils
 
-import play.api.test._
-import play.api.test.Helpers._
+import javax.inject.Inject
 
-@RunWith(classOf[JUnitRunner])
-class IntegrationSpec extends Specification {
+import play.api.http.HttpFilters
+import play.api.mvc.EssentialFilter
+import play.filters.csrf.CSRFFilter
+import play.filters.headers.SecurityHeadersFilter
 
-  "Application" should {
-
-    "work from within a browser" in new WithBrowser {
-
-      browser.goTo("http://localhost:" + port)
-
-      browser.pageSource must contain("Module Directory")
-    }
-  }
+/**
+ * Provides filters.
+ */
+class Filters @Inject() (csrfFilter: CSRFFilter, securityHeadersFilter: SecurityHeadersFilter) extends HttpFilters {
+  override def filters: Seq[EssentialFilter] = Seq(csrfFilter, securityHeadersFilter)
 }
