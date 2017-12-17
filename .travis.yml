@@ -1,0 +1,10 @@
+language: scala
+scala:
+   - 2.12.4
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE moduledir;'
+env:
+   - AUTH0_CLIENT_ID=d58a673ced34abbf3723
+   - AUTH0_CLIENT_SECRET=83a984f2f8b65e61ef17f536efc4046b2436ff1d

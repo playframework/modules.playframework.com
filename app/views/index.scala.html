@@ -14,8 +14,244 @@
  * limitations under the License.
  *@
 
-@()
+ @import play.api.i18n.Messages
+ @import play.api.mvc.RequestHeader
+ @import org.webjars.play.WebJarsUtil
+ @import controllers.AssetsFinder
+ @import play.api.Play.current
+ @import play.api.i18n.Messages.Implicits._
 
-@main("Welcome to Play") {
-  <h1>Welcome to Play!</h1>
-}
+@(user: Option[models.User])(implicit request: RequestHeader, messages: Messages, webJarsUtil: WebJarsUtil, assets: AssetsFinder)
+
+@main(messages("home.title"), user) {
+     <div class="user col-md-6 col-md-offset-3">
+
+             <div class="col-md-12">
+                 <h1 id="Play-modules"><a href="#play-modules" name="play-modules">Play modules</a></h1>
+                 <p>Play uses public modules to augment built-in functionality. </p>
+                 <p>To create your own public module or to migrate from a <code>play.api.Plugin</code>, please see <a href="ScalaPlayModules">ScalaPlayModules</a> or <a href="JavaPlayModules">JavaPlayModules</a>.</p><h2 id="API-hosting"><a href="#api-hosting" name="api-hosting">API hosting</a></h2><h3 id="swagger-play">swagger-play</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/swagger-api/swagger-play">https://github.com/swagger-api/swagger-play</a></li>
+                     <li><strong>Short description:</strong> Generate a Swagger API spec from your Play routes file and Swagger annotations</li>
+                 </ul><h3 id="iheartradio/play-swagger">iheartradio/play-swagger</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/iheartradio/play-swagger">https://github.com/iheartradio/play-swagger</a></li>
+                     <li><strong>Short description:</strong> Write a Swagger spec in your routes file</li>
+                 </ul><h3 id="zalando/play-swagger">zalando/play-swagger</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/zalando/play-swagger">https://github.com/zalando/play-swagger</a></li>
+                     <li><strong>Short description:</strong> Generate Play code from a Swagger spec</li>
+                 </ul><h3 id="mohiva/swagger-codegen-play-scala">mohiva/swagger-codegen-play-scala</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/mohiva/swagger-codegen-play-scala">https://github.com/mohiva/swagger-codegen-play-scala</a></li>
+                     <li><strong>Short description:</strong> Swagger client generator which is based on the PlayWS library</li>
+                 </ul><h2 id="Assets"></h2><h3 id="play2-sprites">play2-sprites</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/koofr/play2-sprites/">https://github.com/koofr/play2-sprites/</a></li>
+                     <li><strong>Short description:</strong> play2-sprites is an sbt plugin that generates sprites from images.</li>
+                 </ul><h3 id="Sass-Plugin"><a href="#sass-plugin" name="sass-plugin">Sass Plugin</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/jlitola/play-sass">https://github.com/jlitola/play-sass</a></li>
+                     <li><strong>Short description:</strong> Asset handling for <a href="http://sass-lang.com/">Sass</a> files</li>
+                 </ul><h3 id="Typescript-Plugin"><a href="#typescript-plugin" name="typescript-plugin">Typescript Plugin</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/ArpNetworking/sbt-typescript">https://github.com/ArpNetworking/sbt-typescript</a></li>
+                     <li><strong>Short description:</strong> A plugin for SBT that uses sbt-web to compile typescript resources</li>
+                 </ul><h3 id="play-webpack-Plugin">play-webpack Plugin</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/BowlingX/play-webpack">https://github.com/BowlingX/play-webpack</a></li>
+                     <li><strong>Short description:</strong> A plugin for SBT to handle webpack generated assets and library to render Javascript on the server with Java&rsquo;s nashorn engine.</li>
+                 </ul><h2 id="Authentication-(Login-&amp;-Registration)-and-Authorization-(Restricted-Access)">Authentication (Login &amp; Registration) and Authorization (Restricted Access)</h2><h3 id="Silhouette-(Scala)">Silhouette (Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://www.silhouette.rocks/">https://www.silhouette.rocks/</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://www.silhouette.rocks/docs/">https://www.silhouette.rocks/docs/</a></li>
+                     <li><strong>Short description:</strong> An authentication library that supports several authentication methods, including OAuth1, OAuth2, OpenID, CAS, Credentials, Basic Authentication, Two Factor Authentication or custom authentication schemes.</li>
+                 </ul><h3 id="Deadbolt-2-Plugin"><a href="#deadbolt-2-plugin" name="deadbolt-2-plugin">Deadbolt 2 Plugin</a></h3>
+                 <ul>
+                     <li><strong>Website (docs, sample):</strong> <a href="https://github.com/schaloner/deadbolt-2">https://github.com/schaloner/deadbolt-2</a></li>
+                     <li><strong>Short description:</strong> Deadbolt is an authorisation mechanism for defining access rights to certain controller methods or parts of a view using a simple AND/OR/NOT syntax</li>
+                 </ul><h3 id="Play-pac4j-(Java-and-Scala)">Play-pac4j (Java and Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/pac4j/play-pac4j">https://github.com/pac4j/play-pac4j</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/pac4j/play-pac4j/blob/master/README.md">https://github.com/pac4j/play-pac4j/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> Play client in Scala and Java which supports OAuth/CAS/OpenID/HTTP authentication and user profile retrieval</li>
+                 </ul><h3 id="Authentication-and-Authorization-module-(Scala)">Authentication and Authorization module (Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/t2v/play20-auth">https://github.com/t2v/play20-auth</a></li>
+                     <li><strong>Documentation(en):</strong> <a href="https://github.com/t2v/play20-auth/blob/master/README.md">https://github.com/t2v/play20-auth/blob/master/README.md</a></li>
+                     <li><strong>Documentation(ja):</strong> <a href="https://github.com/t2v/play20-auth/blob/master/README.ja.md">https://github.com/t2v/play20-auth/blob/master/README.ja.md</a></li>
+                     <li><strong>Short description</strong> This module provides an authentication and authorization way</li>
+                 </ul><h3 id="Play!-Authenticate-(Java)">Play! Authenticate (Java)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://joscha.github.io/play-authenticate/">https://joscha.github.io/play-authenticate/</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/joscha/play-authenticate/blob/master/README.md">https://github.com/joscha/play-authenticate/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> A highly customizable authentication module for Play</li>
+                 </ul><h3 id="SecureSocial-(Java-and-Scala)">SecureSocial (Java and Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="http://securesocial.ws/">http://securesocial.ws/</a></li>
+                     <li><strong>Short description:</strong> An authentication module supporting OAuth, OAuth2, OpenID, Username/Password and custom authentication schemes.</li>
+                 </ul><h2 id="Datastore"><a href="#datastore" name="datastore">Datastore</a></h2><h3 id="Flyway-plugin"><a href="#flyway-plugin" name="flyway-plugin">Flyway plugin</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/flyway/flyway-play">https://github.com/flyway/flyway-play</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/flyway/flyway-play/blob/master/README.md">https://github.com/flyway/flyway-play/blob/master/README.md</a></li>
+                     <li><strong>Short Description:</strong> Supports database migration with Flyway.</li>
+                 </ul><h3 id="MongoDB-Jongo-Plugin-(Java)">MongoDB Jongo Plugin (Java)</h3>
+                 <ul>
+                     <li><strong>Website (docs, sample):</strong> <a href="https://github.com/alexanderjarvis/play-jongo">https://github.com/alexanderjarvis/play-jongo</a></li>
+                     <li><strong>Short description:</strong> Provides managed MongoDB access and object mapping using <a href="http://jongo.org/">Jongo</a></li>
+                 </ul><h3 id="MongoDB-Morphia-Plugin-(Java)">MongoDB Morphia Plugin (Java)</h3>
+                 <ul>
+                     <li><strong>Website (docs, sample):</strong> <a href="https://github.com/morellik/play-morphia">https://github.com/morellik/play-morphia</a></li>
+                     <li><strong>Short description:</strong> Provides managed MongoDB access and object mapping using <a href="http://mongodb.github.io/morphia/">Morphia</a></li>
+                 </ul><h3 id="MongoDB-ReactiveMongo-Plugin-(Scala)">MongoDB ReactiveMongo Plugin (Scala)</h3>
+                 <ul>
+                     <li><strong>Website (docs, sample):</strong> <a href="http://reactivemongo.org/releases/0.11/documentation/tutorial/play2.html">http://reactivemongo.org/releases/0.11/documentation/tutorial/play2.html</a></li>
+                     <li><strong>Short description:</strong> Provides a Play 2.x module for ReactiveMongo, asynchronous and reactive driver for MongoDB.</li>
+                 </ul><h3 id="Play-Hippo">Play-Hippo</h3>
+                 <ul>
+                     <li><strong>Website (docs, sample):</strong> <a href="https://github.com/jbloemendal/play-hippo">https://github.com/jbloemendal/play-hippo</a></li>
+                     <li><strong>Short description:</strong> Provides a Play 2.x module for Hippo CMS.</li>
+                 </ul><h3 id="Play-Slick">Play-Slick</h3>
+                 <ul>
+                     <li><strong>Website (docs, sample):</strong> <a href="https://github.com/playframework/play-slick">https://github.com/playframework/play-slick</a></li>
+                     <li><strong>Short description:</strong> This plugin makes Slick a first-class citizen of Play.</li>
+                 </ul><h3 id="Redis-Plugin-(Java-and-Scala)">Redis Plugin (Java and Scala)</h3>
+                 <ul>
+                     <li><strong>Website (docs, sample):</strong> <a href="https://github.com/typesafehub/play-plugins">https://github.com/typesafehub/play-plugins</a></li>
+                     <li><strong>Short description:</strong> Provides a redis based cache implementation, also lets you use Redis specific APIs</li>
+                 </ul><h3 id="ScalikeJDBC-Plugin-(Scala)">ScalikeJDBC Plugin (Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/scalikejdbc/scalikejdbc-play-support">https://github.com/scalikejdbc/scalikejdbc-play-support</a></li>
+                     <li><strong>Short description:</strong> Provides yet another database access API for Play</li>
+                 </ul><h3 id="Redis-Cache-Plugin-(Java-and-Scala)">Redis Cache Plugin (Java and Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/KarelCemus/play-redis">https://github.com/KarelCemus/play-redis</a></li>
+                     <li><strong>Short description:</strong> Provides both blocking and asynchronous redis based cache implementation. It implements common Play&rsquo;s CacheApi for both Java and Scala plus provides a few more Scala APIs implementing various Redis commands including the support of collections.</li>
+                 </ul><h2 id="Deployment"></h2><h3 id="WAR-Module"><a class="section-marker" href="#WAR-Module">§</a><a href="#war-module" name="war-module">WAR Module</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/dlecan/play2-war-plugin">https://github.com/dlecan/play2-war-plugin</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/dlecan/play2-war-plugin/blob/develop/README.md">https://github.com/dlecan/play2-war-plugin/blob/develop/README.md</a></li>
+                     <li><strong>Short description:</strong> Allow to package Play! 2.x applications into standard WAR packages.</li>
+                 </ul><h2 id="Page-Rendering"><a href="#page-rendering" name="page-rendering">Page Rendering</a></h2><h3 id="Play-Pagelets"><a href="#play-pagelets" name="play-pagelets">Play Pagelets</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/splink/pagelets">https://github.com/splink/pagelets</a></li>
+                     <li><strong>Short Description:</strong> A Module for the Play Framework to build resilient and modular Play applications in an elegant and concise manner.</li>
+                     <li><strong>Seed project:</strong> <a href="https://github.com/splink/pagelets-seed">https://github.com/splink/pagelets-seed</a></li>
+                 </ul><h2 id="Localization"><a href="#localization" name="localization">Localization</a></h2><h3 id="FolderMessages-plugin"><a href="#foldermessages-plugin" name="foldermessages-plugin">FolderMessages plugin</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/germanosin/play-foldermessages">https://github.com/germanosin/play-foldermessages</a></li>
+                     <li><strong>Short Description:</strong> Allows you to split localization messages files into separate manageable files.</li>
+                 </ul><h3 id="JsMessages"><a href="#jsmessages" name="jsmessages">JsMessages</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/julienrf/play-jsmessages">https://github.com/julienrf/play-jsmessages</a></li>
+                     <li><strong>Short description:</strong> Allows to compute localized messages on client side.</li>
+                 </ul><h3 id="Messages-Compiler-Plugin-(Scala)">Messages Compiler Plugin (Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/tegonal/play-messagescompiler">https://github.com/tegonal/play-messagescompiler</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/tegonal/play-messagescompiler/blob/master/readme.md">https://github.com/tegonal/play-messagescompiler/blob/master/readme.md</a></li>
+                     <li><strong>Short description:</strong> Provides type safety for the project&rsquo;s messages.</li>
+                 </ul><h3 id="Play-I18n-HOCON"><a href="#play-i18n-hocon" name="play-i18n-hocon">Play I18n HOCON</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://marcospereira.github.io/play-i18n-hocon/">https://marcospereira.github.io/play-i18n-hocon/</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://marcospereira.github.io/play-i18n-hocon/">https://marcospereira.github.io/play-i18n-hocon/</a></li>
+                     <li><strong>Short description:</strong> A Playframework module to use HOCON for i18n instead of Java Properties</li>
+                 </ul><h2 id="Performance"><a href="#performance" name="performance">Performance</a></h2><h3 id="Googles-HTML-Compressor-(Java-and-Scala)">Google&rsquo;s HTML Compressor (Java and Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/mohiva/play-html-compressor">https://github.com/mohiva/play-html-compressor</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/mohiva/play-html-compressor/blob/master/README.md">https://github.com/mohiva/play-html-compressor/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> Google&rsquo;s HTML Compressor for Play 2.</li>
+                 </ul><h3 id="Memcached-Plugin"><a href="#memcached-plugin" name="memcached-plugin">Memcached Plugin</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/mumoshu/play2-memcached">https://github.com/mumoshu/play2-memcached</a></li>
+                     <li><strong>Short description:</strong> Provides a memcached based cache implementation</li>
+                 </ul><h2 id="Task-Schedulers"><a href="#task-schedulers" name="task-schedulers">Task Schedulers</a></h2><h3 id="Akka-Quartz-Scheduler"><a href="#akka-quartz-scheduler" name="akka-quartz-scheduler">Akka Quartz Scheduler</a></h3>
+                 <ul>
+                     <li><strong>Website</strong>: <a href="https://github.com/enragedginger/akka-quartz-scheduler">https://github.com/enragedginger/akka-quartz-scheduler</a></li>
+                     <li><strong>Documentation</strong>: <a href="https://github.com/enragedginger/akka-quartz-scheduler/blob/master/README.md">https://github.com/enragedginger/akka-quartz-scheduler/blob/master/README.md</a></li>
+                     <li><strong>Short description</strong>: Quartz Extension and utilities for cron-style scheduling in Akka</li>
+                 </ul><h3 id="play-akkjobs">play-akkjobs</h3>
+                 <ul>
+                     <li><strong>Website</strong>: <a href="https://github.com/tuxBurner/play-akkjobs">https://github.com/tuxBurner/play-akkjobs</a></li>
+                     <li><strong>Documentation</strong>: <a href="https://github.com/tuxBurner/play-akkjobs/blob/master/README.md">https://github.com/tuxBurner/play-akkjobs/blob/master/README.md</a></li>
+                     <li><strong>Short description</strong>: A simple Play 2.5 module, which allows you to manage jobs</li>
+                 </ul><h2 id="Templates-and-View"><a href="#templates-and-view" name="templates-and-view">Templates and View</a></h2><h3 id="Google-Closure-Template-Plugin"><a href="#google-closure-template-plugin" name="google-closure-template-plugin">Google Closure Template Plugin</a></h3>
+                 <ul>
+                     <li><strong>Website (docs, sample):</strong> <a href="https://github.com/gawkermedia/play2-closure">https://github.com/gawkermedia/play2-closure</a></li>
+                     <li><strong>Short description:</strong> Provides support for Google Closure Templates</li>
+                 </ul><h3 id="HTML5-Tags-module-(Java-and-Scala)">HTML5 Tags module (Java and Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/loicdescotte/Play2-HTML5Tags">https://github.com/loicdescotte/Play2-HTML5Tags</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/loicdescotte/Play2-HTML5Tags/blob/master/README.md">https://github.com/loicdescotte/Play2-HTML5Tags/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> These tags add client side validation capabilities, based on model constraints (e.g required, email pattern, max|min length&hellip;) and specific input fields (date, telephone number, url&hellip;) to Play templates</li>
+                 </ul><h3 id="Scalate"><a href="#scalate" name="scalate">Scalate</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/scalate/play-scalate">https://github.com/scalate/play-scalate</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://scalate.github.io/scalate/documentation/index.html">https://scalate.github.io/scalate/documentation/index.html</a></li>
+                     <li><strong>Short description:</strong> Alternatives to Twirl HTML template support for Jade (like Haml), Mustache, Scaml (also like Haml), SSP (like Velocity), and Scuery (CSS3 selector language)</li>
+                 </ul><h3 id="PDF-module-(Java)">PDF module (Java)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/innoveit/play2-pdf">https://github.com/innoveit/play2-pdf</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/innoveit/play2-pdf/blob/master/README.md">https://github.com/innoveit/play2-pdf/blob/master/README.md</a></li>
+                     <li><strong>Short description</strong> Generate PDF output from HTML templates</li>
+                 </ul><h3 id="Play-Bootstrap-(Java-and-Scala)">Play-Bootstrap (Java and Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://adrianhurt.github.io/play-bootstrap/">https://adrianhurt.github.io/play-bootstrap/</a></li>
+                     <li><strong>Repository:</strong> <a href="https://github.com/adrianhurt/play-bootstrap">https://github.com/adrianhurt/play-bootstrap</a></li>
+                     <li><strong>Short description:</strong> A library for Bootstrap that gives you an out-of-the-box solution with a set of input helpers and field constructors.</li>
+                 </ul><h3 id="Thymeleaf-module-(Scala)">Thymeleaf module (Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/dmitraver/scala-play-thymeleaf-plugin">https://github.com/dmitraver/scala-play-thymeleaf-plugin</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/dmitraver/scala-play-thymeleaf-plugin/blob/master/README.md">https://github.com/dmitraver/scala-play-thymeleaf-plugin/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> Allows to use <a href="http://www.thymeleaf.org/">Thymeleaf</a> template engine as an alternative<br />to Twirl</li>
+                 </ul><h3 id="Handlebars-templates-(Java-and-Scala)">Handlebars templates (Java and Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/andriykuba/play-handlebars">https://github.com/andriykuba/play-handlebars</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/andriykuba/play-handlebars/blob/master/README.md">https://github.com/andriykuba/play-handlebars/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> <a href="http://handlebarsjs.com/">Handlebars</a> templates based on <a href="https://github.com/jknack/handlebars.java">Java port</a> of handlebars with special handlers for Play Framework.</li>
+                 </ul><h2 id="Utilities"><a href="#utilities" name="utilities">Utilities</a></h2><h3 id="Emailer-Plugin-(Java-and-Scala)">Emailer Plugin (Java and Scala)</h3>
+                 <ul>
+                     <li><strong>Website (docs, sample):</strong> <a href="https://github.com/playframework/play-mailer">https://github.com/playframework/play-mailer</a></li>
+                     <li><strong>Short description:</strong> Provides an emailer based on apache commons-email</li>
+                 </ul><h3 id="Geolocation-(Java)">Geolocation (Java)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://edulify.github.io/play-geolocation-module.edulify.com/">https://edulify.github.io/play-geolocation-module.edulify.com/</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/edulify/play-geolocation-module.edulify.com/blob/master/README.md">https://github.com/edulify/play-geolocation-module.edulify.com/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> Module to retrieve Geolocation data based on IP.</li>
+                 </ul><h3 id="JSONP-filter"><a href="#jsonp-filter" name="jsonp-filter">JSONP filter</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/julienrf/play-jsonp-filter">https://github.com/julienrf/play-jsonp-filter</a></li>
+                     <li><strong>Short description:</strong> Enables JSONP on your existing HTTP API.</li>
+                 </ul><h3 id="Sitemap-Generator-(Java)">Sitemap Generator (Java)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://edulify.github.io/play-sitemap-module.edulify.com/">https://edulify.github.io/play-sitemap-module.edulify.com/</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/edulify/play-sitemap-module.edulify.com/blob/master/README.md">https://github.com/edulify/play-sitemap-module.edulify.com/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> Automatic <a href="https://www.sitemaps.org/">sitemaps</a> generator for Play</li>
+                 </ul><h3 id="play-guard-(Scala)">play-guard (Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/sief/play-guard/">https://github.com/sief/play-guard/</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/sief/play-guard/blob/master/README.md">https://github.com/sief/play-guard/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> Play2 module for blocking and throttling abusive requests</li>
+                 </ul><h2 id="Cloud-services"><a href="#cloud-services" name="cloud-services">Cloud services</a></h2><h3 id="Amazon-SES-module-(Scala)">Amazon SES module (Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/Rhinofly/play-mailer">https://github.com/Rhinofly/play-mailer</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/Rhinofly/play-mailer/blob/master/README.md">https://github.com/Rhinofly/play-mailer/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> SES (Simple Email Service) API wrapper for Play</li>
+                 </ul><h3 id="Amazon-S3-module-(Scala)">Amazon S3 module (Scala)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/Rhinofly/play-s3">https://github.com/Rhinofly/play-s3</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/Rhinofly/play-s3/blob/master/README.md">https://github.com/Rhinofly/play-s3/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> S3 (Simple Storage Service) API wrapper for Play</li>
+                 </ul><h3 id="Pusher"><a href="#pusher" name="pusher">Pusher</a></h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://pusher.com/">https://pusher.com/</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/tindr/Play2Pusher">https://github.com/tindr/Play2Pusher</a></li>
+                     <li><strong>Short description:</strong> Easily interact with the Pusher Service within your Play application.</li>
+                 </ul><h3 id="Push-Notifications-module-(Java)">Push Notifications module (Java)</h3>
+                 <ul>
+                     <li><strong>Website:</strong> <a href="https://github.com/splendidbits/play-pushservices">https://github.com/splendidbits/play-pushservices</a></li>
+                     <li><strong>Documentation:</strong> <a href="https://github.com/splendidbits/play-pushservices/blob/master/README.md">https://github.com/splendidbits/play-pushservices/blob/master/README.md</a></li>
+                     <li><strong>Short description:</strong> A stupid-simple module for creating, batching, queuing and sending push notifications.</li>
+                 </ul>
+             </div>
+     </div>
+ }
