@@ -19,8 +19,6 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-mocha" % "1.1.2")
 
 // build
 
-addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "5.2.4")
-
 addSbtPlugin("de.heikoseeberger" % "sbt-header" % "4.0.0")
 
 addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.8.2")
